@@ -9,4 +9,6 @@ import { Component } from '@angular/core'
      // } `]
      styleUrls: ['./topo.css']
 })
-export class TopoComponent {}
+export class TopoComponent {
+     public titulo: string = 'Aprendendo Inglês'
+}
