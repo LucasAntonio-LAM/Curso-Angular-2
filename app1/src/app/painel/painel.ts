@@ -15,6 +15,12 @@ export class PainelComponent {
 
   public frases: Frase[] = FRASES
   public instrucao: string = 'Traduza a frase:'
+  public resposta?: string 
 
   constructor() { console.log(this.frases) }
+
+  public atualizaResposta(resposta: Event): void {
+    this.resposta = (<HTMLInputElement>resposta.target).value
+    console.log(this.resposta)
+  }
 }
