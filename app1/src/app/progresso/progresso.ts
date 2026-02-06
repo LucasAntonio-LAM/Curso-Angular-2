@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-progresso',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './progresso.css',
 })
 export class ProgressoComponent {
+  
+  @Input('xyz') public progresso: number = 0
 
 }
