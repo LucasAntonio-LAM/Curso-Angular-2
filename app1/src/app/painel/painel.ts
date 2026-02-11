@@ -15,7 +15,7 @@ export class PainelComponent {
 
   public frases: Frase[] = FRASES
   public instrucao: string = 'Traduza a frase:'
-  public resposta?: string
+  public resposta: string = ''
 
   public rodada: number = 0
   public rodadaFrase: Frase 
@@ -23,8 +23,7 @@ export class PainelComponent {
   public progresso: number = 0
 
   constructor() { 
-    this.rodadaFrase = this.frases[this.rodada]
-    console.log(this.rodadaFrase)
+    this.atualizaRodada()
   }
 
   public atualizaResposta(resposta: Event): void {
@@ -46,11 +45,19 @@ export class PainelComponent {
       console.log(this.progresso)
 
       // Atualiza o objeto rodadaFrase
-      this.rodadaFrase = this.frases[this.rodada]
-      //console.log(this.rodadaFrase)
-
+      this.atualizaRodada()
+      
     } else {
       alert('A tradução está errada')
     }
+  }
+
+  public atualizaRodada(): void {
+
+    // Define a frase da rodada com base em alguma logica
+    this.rodadaFrase = this.frases[this.rodada]
+
+    // Limpa a reposta
+    this.resposta = ''
   }
 }
