@@ -1,23 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { Coracao } from '../shared/coracao.model';
 
 @Component({
   selector: 'app-tentativas',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tentativas.html',
   styleUrl: './tentativas.css',
 })
 export class TentativasComponent {
 
-  public coracaoVazio: string = 'images/coracao_vazio.png'
-  public coracaoCheio: string = 'images/coracao_cheio.png'
-  
+  @Input() public tentativas!: number
+
   public coracoes: Coracao[] = [
     new Coracao(true), new Coracao(true), new Coracao(true)
   ]
 
   constructor() {
     console.log(this.coracoes)
+  }
+
+  ngOnInit() {
+    console.log('Tentativas recebidas do painel: ', this.tentativas)
   }
 }
